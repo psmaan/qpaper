@@ -1,40 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background-color: #cbcbcb;
 }
 
 * {
@@ -107,6 +72,8 @@
 
 /* Welcome Page */
 
+/* Welcome NAVBAR */
+
 .registration-navbar {
   display: flex;
   height: 60px;
@@ -114,6 +81,7 @@
   background-color: #ffffff;
   align-items: center;
   padding: 0 50px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-logo {
@@ -138,44 +106,53 @@
   font-size: 16px;
 }
 
+/* Register and Login */
+
 .registration-container {
-  background-color: red;
   display: flex;
   flex-direction: row;
-  padding: 50px;
-  justify-content: space-between;
+  padding: 50px 0;
+  justify-content: center;
+}
+
+.registration-container > div {
+  margin: 0 auto;
 }
 
 .welcome-landing {
   display: flex;
-  padding: 50px;
+  padding: 20px 50px;
+  max-width: 800px;
 }
 
 .welcome-headers > h1 {
-  font-size: 50px;
+  font-size: 60px;
+  color: #494949;
 }
 
 .welcome-headers > h3 {
-  font-size: 25px;
-}
-
-.welcome-image > img {
-  width: 200px;
-  height: 400px;
-  background-color: rebeccapurple;
+  font-size: 30px;
+  color: #cbcbcb;
 }
 
 /* Registration - Component*/
 
 .registration-landing {
-  background-color: blue;
+  background-color: white;
   width: 550px;
   border-radius: 16px;
-  padding: 16px;
+  padding: 24px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  margin: auto;
 }
 
 .registration-main {
 
+}
+
+
+.registration-main > h1 {
+  color: #f23f15;
 }
 
 .registration-main > h3 {
@@ -183,29 +160,39 @@
 }
 
 .registration-form {
-  background-color: #f23f15;
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  padding-left: 0;
+  padding: 0;
   margin-top: 20px;
 }
 
 .registration-form-name {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 45% 45%;
   justify-content: space-between;
 }
 
-.registration-form-name > input {
-  width: 45%;
-  margin: 10px;
-  padding: 10px 15px;
+.label-input {
+  margin: 5px 0;
 }
 
-.registration-form > input {
-  margin: 10px;
+.label-input > label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 5px;
+  margin-bottom: 8px;
+}
+
+.registration-form-name > div > input {
   padding: 10px 15px;
+  border: 1px solid #e4e6ea;
+  border-radius: 8px;
+}
+
+.registration-form > div > input {
+  padding: 10px 15px;
+  border: 1px solid #e4e6ea;
+  border-radius: 8px;
 }
 
 .registration-form > button {
@@ -218,17 +205,43 @@
   margin-top: 20px;
 }
 
+.label-input {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0;
+}
+
+.register-button, .login-button {
+  background-color: #f23f15;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+
+
 /* Login Component */
 
+.user-login-container {
+  margin: 0 auto;
+  width: auto;
+}
+
 .user-login-landing {
-  background-color: blue;
   padding: 24px;
   border-radius: 16px;
   width: 500px;
+  background-color: white;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .login-main > h1 {
   font-size: 40px;
+  color: #f23f15;
 }
 
 .login-form {
@@ -237,9 +250,10 @@
   flex-direction: column;
 }
 
-.login-form > input {
-  margin: 10px 0;
+.login-form > div > input {
   padding: 10px 15px;
+  border: 1px solid #e4e6ea;
+  border-radius: 8px;
 }
 
 .login-form > button {
@@ -258,6 +272,84 @@
   padding-top: 50px;
 }
 
+@media (max-width: 1200px) {
+  .user-login-landing {
+    width: 400px;
+  }
+
+  .welcome-headers > h1{
+    font-size: 60px;
+  }
+
+  .welcome-headers > h3{
+    font-size: 20px;
+  }
+
+  .login-main > h1 {
+    font-size: 40px;
+  }
+  .login-main > h3 {
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .user-login-landing {
+    width: 350px;
+  }
+
+  .registration-landing {
+    width: 500px;
+  }
+}
+
+@media (max-width: 910px) {
+  .registration-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .welcome-headers > h1{
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .welcome-headers > h3{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .user-login-landing {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-headers > h1{
+    font-size: 40px;
+    text-align: center;
+  }
+  .welcome-headers > h3{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .welcome-landing {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .registration-landing {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 /* Parent Dashboard */
 
 a {
@@ -272,7 +364,7 @@ body {
 
 .navbar-container {
   height: 50px;
-  background-color: #f23f15;
+  background-color: #e4e6ea;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -443,9 +535,17 @@ h3.subject-align {
 
 /* Examination page */
 
+/* Examination Popup */
+
+.exam-popup-container {
+  background-color: blue;
+  position: absolute;
+  margin: auto;
+}
+
 .navbar-container {
   height: 50px;
-  background-color: red;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -453,7 +553,6 @@ h3.subject-align {
 }
 
 .logo-container {
-  background-color: blue;
   display: flex;
   align-items: center;
 }
@@ -493,3 +592,25 @@ h3.subject-align {
 .exam-question {
   margin-top: 30px;
 }
+
+/* Test Application */
+
+.test-application-container {
+  background-color: blue;
+  position: absolute;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.test-application-header > h2 {
+  padding: 15px;
+}
+
+/* Result Page */
+
+.exam-question > img {
+  height: 30px;
+  width: 30px;
+  background-color: #61dafb;
+}
+

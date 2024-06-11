@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Registration from './RegisterLogin/Registration'
 import Login from './RegisterLogin/Login'
-import { Link } from 'react-router-dom'
 
 export default function Homepage() {
     const [showRegistration, setShowRegistration] = useState(true)

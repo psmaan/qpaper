@@ -10,18 +10,29 @@ export default function Registration({ toggleView }) {
                     <h3>This is a sample subheading for login.</h3>
                     <div className="registration-form">
                         <div className="registration-form-name">
-                            <input id="fname" type="text" placeholder="First Name" />
-                            <input id="lname" type="text" placeholder="Last Name" />
+                            <div className='label-input'>
+                                <label>First Name</label>
+                                <input id="fname" type="text" />
+                            </div>
+                            <div className='label-input'>
+                                <label>Last Name</label>
+                                <input id="fname" type="text" />
+                            </div>
                         </div>
-                        <input id="phone" type="text" placeholder="Phone" />
-                        <input id="userid" type="text" placeholder="User ID" />
-                        <input id="password" type="password" placeholder="Password" />
-                        <Link to="/dashboard"><button>Sign Up</button></Link>
-
+                        <div className='label-input'>
+                            <label>Phone</label>
+                            <input id="fname" type="text" />
+                        </div>
+                        <div className='label-input'>
+                            <label>User ID</label>
+                            <input id="fname" type="text" />
+                        </div>
+                        <div className='label-input'>
+                            <label>Password</label>
+                            <input id="fname" type="text" />
+                        </div>
+                        <Link to="/dashboard"><button className='register-button'>Submit</button></Link>
                     </div>
-                    <h2>
-                        Already have an account? <a onClick={toggleView}>Sign In</a>
-                    </h2>
                 </div>
             </div>
         </div>

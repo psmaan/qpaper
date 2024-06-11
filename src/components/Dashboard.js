@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import TestApplication from './TestApplication';
+
 
 
 export default function Dashboard() {
@@ -17,8 +20,37 @@ export default function Dashboard() {
         });
     };
 
+    let applicationRef = useRef();
+
+    useEffect(() => {
+        let handler = (e) => {
+            if (!applicationRef.current.contains(e.target)) {
+                setHiddenStyle(prevStyle => ({
+                    display: prevStyle.display === "none" ? "block" : "none"
+                }));
+            }
+
+        }
+
+        document.addEventListener("mousedown", handler)
+    })
+
+    const [hiddenStyle, setHiddenStyle] = useState({
+        display: "none",
+    })
+
+    const showHiddenStyle = () => {
+
+        setHiddenStyle({
+            display: "block"
+        });
+    }
+
     return (
         <div>
+            <div className="application-comp" style={hiddenStyle} ref={applicationRef}>
+                <TestApplication />
+            </div>
             <div className="navbar-container">
                 <div className="logo-container">
                     <img alt="Logo" />
@@ -34,11 +66,8 @@ export default function Dashboard() {
                         className="profile-dropdown"
                         style={{ transform: profileDropdown ? 'scaleY(1)' : 'scaleY(0)' }}
                     >
-                        <div className="account-settings">
-                            <a>Account Settings</a>
-                        </div>
                         <div className="logout">
-                            <a href="registration.html">Log Out</a>
+                            <Link to="/">Log Out</Link>
                         </div>
                     </div>
                 </div>
@@ -49,31 +78,13 @@ export default function Dashboard() {
                         <h1>Parent Dashboard</h1>
                         <h3>Subheading for Parent Dashboard</h3>
                     </div>
-                    <button><a href="exampage.html">Apply For a Test</a></button>
+                    <button><Link onClick={showHiddenStyle}>Apply For a Test</Link></button>
                 </div>
                 <div className="student-list">
                     {[0, 1].map(index => (
                         <div key={index} className="student-container">
                             <div className="student-header">
                                 <h2>Student {index + 1}</h2>
-                                <div className="student-menu-container">
-                                    <img
-                                        src="media/tripledot.png"
-                                        alt="Menu"
-                                        onClick={() => toggleStudentDropdown(index)}
-                                    />
-                                    <div
-                                        className="profile-dropdown"
-                                        style={{ transform: studentDropdowns[index] ? 'scaleY(1)' : 'scaleY(0)' }}
-                                    >
-                                        <div className="account-settings">
-                                            <a>View</a>
-                                        </div>
-                                        <div className="logout">
-                                            <a>Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div className="student-grid">
                                 <div className="student-grid-row header-row">
