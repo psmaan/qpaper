@@ -10,12 +10,12 @@ export default function Login({ toggleView }) {
                     <h3>This is a sample subheading for login.</h3>
                     <div className="login-form">
                         <div className="label-input">
-                            <label>User ID</label>
-                            <input id="useridlogin" type="text" />
+                            <label>Email ID</label>
+                            <input id="emaillogin" type="text" />
                         </div>
                         <div className="label-input">
                             <label>Password</label>
-                            <input id="useridlogin" type="text" />
+                            <input id="passwordlogin" type="text" />
                         </div>
                         <Link to="/dashboard"><button className='login-button'>Sign In</button></Link>
 

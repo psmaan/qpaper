@@ -24,7 +24,7 @@ export default function Registration({ toggleView }) {
                             <input id="fname" type="text" />
                         </div>
                         <div className='label-input'>
-                            <label>User ID</label>
+                            <label>Email ID</label>
                             <input id="fname" type="text" />
                         </div>
                         <div className='label-input'>
