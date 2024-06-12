@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Registration from './RegisterLogin/Registration'
 import Login from './RegisterLogin/Login'
+import pfp from './media/pfp.png'
 
 export default function Homepage() {
     const [showRegistration, setShowRegistration] = useState(true)
@@ -13,7 +14,7 @@ export default function Homepage() {
         <div>
             <div className="registration-navbar">
                 <div className="navbar-logo">
-                    <img alt="logo" />
+                    <img src={pfp} />
                     <h3>Logo Placeholder</h3>
                 </div>
                 <button className="registration-button" onClick={toggleView}>

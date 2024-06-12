@@ -90,8 +90,8 @@ body {
 }
 
 .navbar-logo > img {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   background-color: white;
   margin-right: 10px;
 }
@@ -400,13 +400,13 @@ body {
 .profile-dropdown {
   position: absolute;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 0 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  top: 50px;
-  left: -120px;
+  top: 55px;
+  left: -50px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   transform: scaleY(0);
   transform-origin: top;
@@ -595,15 +595,102 @@ h3.subject-align {
 
 /* Test Application */
 
+.application-comp {
+  position: relative;
+}
+
+.close-button {
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.test-application-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Optional: adds a dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
 .test-application-container {
-  background-color: blue;
-  position: absolute;
-  margin: 0 auto;
+  background-color: white;
+  margin: 50px auto;
   width: 500px;
+  position: absolute;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.test-application-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: none;
+  margin-bottom: 20px;
 }
 
 .test-application-header > h2 {
-  padding: 15px;
+}
+
+.test-application-header > button > img {
+  height: 20px;
+  width: 20px;
+}
+
+.test-application-form {
+}
+
+.test-application-form > form > div {
+  margin: 20px 0;
+}
+
+.label-select {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0;
+}
+
+.label-select > label {
+  font-size: 15px;
+  padding-left: 5px;
+}
+
+.label-select > select {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #e4e6ea;
+  font-size: 15px;
+}
+
+.price-pay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+  position: relative;
+  top: 10px;
+}
+
+.payment-button {
+  background-color: none;
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f23f15;
+  color: white;
 }
 
 /* Result Page */

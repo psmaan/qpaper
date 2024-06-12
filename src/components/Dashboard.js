@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import TestApplication from './TestApplication';
-
-
+import pfp from './media/pfp.png';
+import viewIcon from './media/return-eye.png';
 
 export default function Dashboard() {
     const [profileDropdown, setProfileDropdown] = useState(false);
     const [studentDropdowns, setStudentDropdowns] = useState([]);
+    const [showTestApplication, setShowTestApplication] = useState(false);
 
     const toggleProfileDropdown = () => {
         setProfileDropdown(!profileDropdown);
@@ -20,45 +21,41 @@ export default function Dashboard() {
         });
     };
 
-    let applicationRef = useRef();
+    const applicationRef = useRef();
 
     useEffect(() => {
-        let handler = (e) => {
-            if (!applicationRef.current.contains(e.target)) {
-                setHiddenStyle(prevStyle => ({
-                    display: prevStyle.display === "none" ? "block" : "none"
-                }));
+        const handler = (e) => {
+            if (applicationRef.current && !applicationRef.current.contains(e.target)) {
+                setShowTestApplication(false);
             }
+        };
 
-        }
+        document.addEventListener('mousedown', handler);
 
-        document.addEventListener("mousedown", handler)
-    })
+        return () => {
+            document.removeEventListener('mousedown', handler);
+        };
+    }, []);
 
-    const [hiddenStyle, setHiddenStyle] = useState({
-        display: "none",
-    })
-
-    const showHiddenStyle = () => {
-
-        setHiddenStyle({
-            display: "block"
-        });
-    }
+    const handleApplyForTestClick = () => {
+        setShowTestApplication(true);
+    };
 
     return (
         <div>
-            <div className="application-comp" style={hiddenStyle} ref={applicationRef}>
-                <TestApplication />
-            </div>
+            {showTestApplication && (
+                <div className="application-comp" ref={applicationRef}>
+                    <TestApplication showTestApplication={showTestApplication} setShowTestApplication={setShowTestApplication} />
+                </div>
+            )}
             <div className="navbar-container">
                 <div className="logo-container">
-                    <img alt="Logo" />
+                    <img src={pfp} alt="Logo Placeholder" />
                     <h3>Logo Placeholder</h3>
                 </div>
                 <div className="profile-container">
                     <img
-                        src="media/pfp.png"
+                        src={pfp}
                         alt="Profile"
                         onClick={toggleProfileDropdown}
                     />
@@ -78,7 +75,7 @@ export default function Dashboard() {
                         <h1>Parent Dashboard</h1>
                         <h3>Subheading for Parent Dashboard</h3>
                     </div>
-                    <button><Link onClick={showHiddenStyle}>Apply For a Test</Link></button>
+                    <button onClick={handleApplyForTestClick}>Apply For a Test</button>
                 </div>
                 <div className="student-list">
                     {[0, 1].map(index => (
@@ -99,21 +96,21 @@ export default function Dashboard() {
                                     <h3 className="subject-align">Subject 1</h3>
                                     <h3>27/05/24</h3>
                                     <h3>12/30</h3>
-                                    <img src="media/return-eye.png" alt="View" />
+                                    <img src={viewIcon} alt="View" />
                                 </div>
                                 <div className="student-grid-row">
                                     <h3>2.</h3>
                                     <h3 className="subject-align">Subject 1</h3>
                                     <h3>27/05/24</h3>
                                     <h3>12/30</h3>
-                                    <img src="media/return-eye.png" alt="View" />
+                                    <img src={viewIcon} alt="View" />
                                 </div>
                                 <div className="student-grid-row last-row">
                                     <h3>3.</h3>
                                     <h3 className="subject-align">Subject 1</h3>
                                     <h3>27/05/24</h3>
                                     <h3>12/30</h3>
-                                    <img src="media/return-eye.png" alt="View" />
+                                    <img src={viewIcon} alt="View" />
                                 </div>
                             </div>
                         </div>
