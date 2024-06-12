@@ -352,6 +352,15 @@ body {
 
 /* Parent Dashboard */
 
+.navbar-container {
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -364,11 +373,12 @@ body {
 
 .navbar-container {
   height: 50px;
-  background-color: #e4e6ea;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 40px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .logo-container {
@@ -533,7 +543,61 @@ h3.subject-align {
   border-bottom: none;
 }
 
+@media (max-width: 1024px) {
+  .student-grid-row {
+    grid-template-columns: 12% 40% repeat(3, 15%);
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-grid-row > h3 {
+    font-size: 14px;
+  }
+  .student-grid-row {
+    grid-template-columns: 15% 40% repeat(3, 15%);
+    align-items: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .student-grid-row {
+    grid-template-columns: 15% 40% repeat(3, 15%);
+    align-items: center;
+  }
+  .dashboard-heading > h1 {
+    font-size: 30px;
+  }
+  .dashboard-heading > h3 {
+    font-size: 15px;
+  }
+  .navbar-container {
+    padding: 16px 20px;
+  }
+
+}
+
+@media (max-width: 450px) {
+  .student-grid-row {
+    grid-template-columns: 15% 35% repeat(3, 15%);
+  }
+  .student-grid-row > h3 {
+    font-size: 12px;
+  }
+}
+
+.add-student {
+  background-color: #f23f15;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+}
+
 /* Examination page */
+
+
 
 /* Examination Popup */
 
@@ -543,14 +607,7 @@ h3.subject-align {
   margin: auto;
 }
 
-.navbar-container {
-  height: 50px;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 40px;
-}
+
 
 .logo-container {
   display: flex;
@@ -577,21 +634,6 @@ h3.subject-align {
   margin-right: 24px;
 }
 
-.exam-landing {
-  margin: 50px;
-  padding: 24px 48px;
-  border-radius: 16px;
-  background-color: red;
-}
-
-.exam-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.exam-question {
-  margin-top: 30px;
-}
 
 /* Test Application */
 
@@ -641,6 +683,7 @@ h3.subject-align {
 }
 
 .test-application-header > h2 {
+
 }
 
 .test-application-header > button > img {
@@ -649,6 +692,7 @@ h3.subject-align {
 }
 
 .test-application-form {
+
 }
 
 .test-application-form > form > div {
@@ -693,11 +737,161 @@ h3.subject-align {
   color: white;
 }
 
+/* Exampage */
+
+.exam-popup-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.exam1 {
+  position: absolute;
+  width: 100%;
+}
+
+.exam-popup-container {
+  background-color: white;
+  padding: 24px;
+  border-radius: 16px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.exam-popup-container > h1 {
+  color: #f23f15;
+}
+
+.test-instructions {
+  margin-top: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+}
+
+.start-test {
+  padding: 12px 20px;
+  background-color: #f23f15;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  margin: 20px auto 0 auto;
+}
+
+
+.exam-landing {
+  margin: 50px;
+  padding: 24px 48px;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exam-header > h1 {
+  color: #f23f15;
+  font-size: 40px;
+}
+
+.exam-header > h3 {
+  margin-top: 10px;
+}
+
+.exam-form {
+  margin-top: 100px;
+}
+
+.exam-question {
+  margin-top: 30px;
+}
+
+.exam-question > h3 {
+  margin-bottom: 10px;
+}
+
+.exam-question > input {
+  margin: 8px;
+  margin-left: 20px;
+}
+
+.exam-submit > button {
+  padding: 10px 15px;
+  color: white;
+  background-color: #f23f15;
+  border: none;
+  border-radius: 8px;
+}
+
 /* Result Page */
 
-.exam-question > img {
+.result-landing {
+  margin: 20px;
+  border-radius: 24px;
+  background-color: white;
+  padding: 24px;
+  box-decoration-break: ;
+}
+
+.result-header {
+  color: #f23f15;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.result-heading {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 200px;
+  margin-top: 5px;
+}
+
+.result-heading > h2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.result-heading > h1 {
+  font-size: 20px;
+}
+
+.result-question > img {
   height: 30px;
   width: 30px;
   background-color: #61dafb;
 }
+
+
+
+.result-form {
+  margin-top: 50px;
+}
+
+.result-question {
+  margin-bottom: 20px;
+}
+
+.answer-container {
+  display: flex;
+  align-items: center;
+}
+
+.answer-container label {
+  margin-right: 10px;
+}
+
+.icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+}
+
 

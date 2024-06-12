@@ -20,14 +20,17 @@ export default function Exampage() {
     })
 
     const [popupStyle, setPopupStyle] = useState({
-        display: "block",
+        display: "flex",
     })
 
     const navigate = useNavigate();
 
     const questions = [
         { question: 'This is a sample question?', answers: ['HTML', 'CSS', 'JavaScript', 'React'], correctAnswer: 'React' },
-        // Add more questions here...
+        { question: 'This is a sample question?', answers: ['HTML', 'CSS', 'JavaScript', 'React'], correctAnswer: 'React' },
+        { question: 'This is a sample question?', answers: ['HTML', 'CSS', 'JavaScript', 'React'], correctAnswer: 'React' },
+        { question: 'This is a sample question?', answers: ['HTML', 'CSS', 'JavaScript', 'React'], correctAnswer: 'React' },
+        //Add questions here
     ];
 
     const [userAnswers, setUserAnswers] = useState(Array(questions.length).fill(null));
@@ -37,20 +40,22 @@ export default function Exampage() {
     };
 
     return (
-        <div>
-            <div className="exam-popup-container" style={popupStyle}>
-                <h1>Test Heading</h1>
-                <ul>
-                    <li>Test subheading 1</li>
-                    <li>Test subheading 2</li>
-                    <li>Test subheading 3</li>
-                </ul>
-                <button ref={startRef}>Start</button>
+        <div className='exam1'>
+            <div className="exam-popup-background" style={popupStyle}>
+                <div className="exam-popup-container">
+                    <h1>Test Instructions</h1>
+                    <ul className='test-instructions' type="bullet">
+                        <li>This is a test subheading 1</li>
+                        <li>This is a test subheading 2</li>
+                        <li>This is a test subheading 3</li>
+                    </ul>
+                    <button className='start-test' ref={startRef}>Start</button>
+                </div>
             </div>
             <div className="exam-landing">
                 <div className="exam-header">
                     <h1>Subject Heading</h1>
-                    <h3>*30 marks</h3>
+                    <h3>30 marks</h3>
                 </div>
                 <h3>This is a subheading for the subject of examination.</h3>
                 <div className="exam-form">
@@ -73,66 +78,6 @@ export default function Exampage() {
                     ))}
                     <div className="exam-submit">
                         <button onClick={handleSubmit}>Submit</button>
-                    </div>
-                </div>
-                <div className="exam-form2">
-                    <div className="exam-question">
-                        <h3>1. This is a sample question?</h3>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">HTML</label><br />
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label for="css">CSS</label><br />
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                        <label for="javascript">JavaScript</label><br />
-                        <input type="radio" id="react" name="fav_language" value="react" />
-                        <label for="react">React</label>
-                    </div>
-                    <div className="exam-question">
-                        <h3>1. This is a sample question?</h3>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">HTML</label><br />
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label for="css">CSS</label><br />
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                        <label for="javascript">JavaScript</label><br />
-                        <input type="radio" id="react" name="fav_language" value="react" />
-                        <label for="react">React</label>
-                    </div>
-                    <div className="exam-question">
-                        <h3>1. This is a sample question?</h3>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">HTML</label><br />
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label for="css">CSS</label><br />
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                        <label for="javascript">JavaScript</label><br />
-                        <input type="radio" id="react" name="fav_language" value="react" />
-                        <label for="react">React</label>
-                    </div>
-                    <div className="exam-question">
-                        <h3>1. This is a sample question?</h3>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">HTML</label><br />
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label for="css">CSS</label><br />
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                        <label for="javascript">JavaScript</label><br />
-                        <input type="radio" id="react" name="fav_language" value="react" />
-                        <label for="react">React</label>
-                    </div>
-                    <div className="exam-question">
-                        <h3>1. This is a sample question?</h3>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">HTML</label><br />
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
-                        <label for="css">CSS</label><br />
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                        <label for="javascript">JavaScript</label><br />
-                        <input type="radio" id="react" name="fav_language" value="react" />
-                        <label for="react">React</label>
-                    </div>
-                    <div className="exam-submit">
-                        <Link to="/result"><button>Submit</button></Link>
                     </div>
                 </div>
             </div>

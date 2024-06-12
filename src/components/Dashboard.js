@@ -8,6 +8,7 @@ export default function Dashboard() {
     const [profileDropdown, setProfileDropdown] = useState(false);
     const [studentDropdowns, setStudentDropdowns] = useState([]);
     const [showTestApplication, setShowTestApplication] = useState(false);
+    const [students, setStudents] = useState([{ id: 0 }, { id: 1 }]);
 
     const toggleProfileDropdown = () => {
         setProfileDropdown(!profileDropdown);
@@ -39,6 +40,10 @@ export default function Dashboard() {
 
     const handleApplyForTestClick = () => {
         setShowTestApplication(true);
+    };
+
+    const addStudent = () => {
+        setStudents([...students, { id: students.length }]);
     };
 
     return (
@@ -78,10 +83,10 @@ export default function Dashboard() {
                     <button onClick={handleApplyForTestClick}>Apply For a Test</button>
                 </div>
                 <div className="student-list">
-                    {[0, 1].map(index => (
-                        <div key={index} className="student-container">
+                    {students.map((student, index) => (
+                        <div key={student.id} className="student-container">
                             <div className="student-header">
-                                <h2>Student {index + 1}</h2>
+                                <h2>Student {student.id + 1}</h2>
                             </div>
                             <div className="student-grid">
                                 <div className="student-grid-row header-row">
@@ -115,6 +120,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     ))}
+                    <button className='add-student' onClick={addStudent}>Add Student</button>
                 </div>
             </div>
         </div>

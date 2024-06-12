@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { students, subjects } from './../studentData';
-import { Link } from 'react-router-dom';
-import closeButton from './media/cross-editor.png'
+import { Link, useNavigate } from 'react-router-dom';
+import closeButton from './media/cross-editor.png';
 
 export default function TestApplication({ showTestApplication, setShowTestApplication }) {
     const [selectedStudent, setSelectedStudent] = useState('');
     const [availableSubjects, setAvailableSubjects] = useState([]);
     const [selectedSubject, setSelectedSubject] = useState('');
+    const navigate = useNavigate();
 
     const handleStudentChange = (e) => {
         const studentId = e.target.value;
@@ -28,10 +29,13 @@ export default function TestApplication({ showTestApplication, setShowTestApplic
     };
 
     const handleBackgroundClick = (e) => {
-        // Only close if clicking directly on the background, not on the form
         if (e.target === e.currentTarget) {
             handleClose();
         }
+    };
+
+    const handleProceedToPayment = () => {
+        navigate('/exampage', { state: { selectedStudent, selectedSubject } });
     };
 
     return (
@@ -40,7 +44,9 @@ export default function TestApplication({ showTestApplication, setShowTestApplic
                 <div className="test-application-container" onClick={(e) => e.stopPropagation()}>
                     <div className="test-application-header">
                         <h2>Apply for a Test</h2>
-                        <button className="close-button" onClick={handleClose}><img src={closeButton}></img></button>
+                        <button className="close-button" onClick={handleClose}>
+                            <img src={closeButton} alt="Close" />
+                        </button>
                     </div>
                     <div className="test-application-form">
                         <form>
@@ -55,7 +61,6 @@ export default function TestApplication({ showTestApplication, setShowTestApplic
                                     ))}
                                 </select>
                             </div>
-
                             <div className='label-select'>
                                 <label>Select Subject:</label>
                                 <select
@@ -71,14 +76,13 @@ export default function TestApplication({ showTestApplication, setShowTestApplic
                                     ))}
                                 </select>
                             </div>
-
                             <div className='price-pay'>
                                 <div className="pricing-form">
                                     <h2>Price - Rs. 100</h2>
                                 </div>
-                                <Link to="/exampage">
-                                    <button type="button" className='payment-button'>Proceed to Payment</button>
-                                </Link>
+                                <button type="button" className='payment-button' onClick={handleProceedToPayment}>
+                                    Proceed to Payment
+                                </button>
                             </div>
                         </form>
                     </div>

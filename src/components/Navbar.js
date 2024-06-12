@@ -38,9 +38,6 @@ export default function Navbar() {
                         <div className="dashboard-link">
                             <Link to="/dashboard">Home</Link>
                         </div>
-                        <div className="account-settings">
-                            <a>Account Settings</a>
-                        </div>
                         <div className="logout">
                             <Link to="/">Log Out</Link>
                         </div>
