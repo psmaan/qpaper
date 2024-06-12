@@ -111,7 +111,7 @@ body {
 .registration-container {
   display: flex;
   flex-direction: row;
-  padding: 50px 0;
+  padding: 50px 20px;
   justify-content: center;
 }
 
@@ -347,6 +347,22 @@ body {
   .registration-landing {
     width: 90%;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .registration-container {
+    padding-top: 20px;
+  }
+  .registration-form-name {
+    display: flex;
+    flex-direction: column;
+  }
+  .welcome-headers > h1 {
+    font-size: 30px;
+  }
+  .registration-navbar {
+    padding: 10px;
   }
 }
 
@@ -595,6 +611,22 @@ h3.subject-align {
   border: none;
 }
 
+@media (max-width: 450px) {
+  .landing-header {
+    flex-direction: column;
+  }
+  .landing-header > button {
+    margin-top: 20px;
+  }
+  .student-grid-row {
+    grid-template-columns: 50px 120px repeat(3, 60px);
+
+  }
+  .student-grid {
+    overflow-x: scroll;
+  }
+}
+
 /* Examination page */
 
 
@@ -673,6 +705,8 @@ h3.subject-align {
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+
+
 .test-application-header {
   display: flex;
   flex-direction: row;
@@ -735,6 +769,21 @@ h3.subject-align {
   border: none;
   background-color: #f23f15;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .test-application-container {
+    width: 80%;
+  }
+
+  .price-pay {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .price-pay > div {
+    margin: 10px 0;
+  }
 }
 
 /* Exampage */
@@ -830,6 +879,56 @@ h3.subject-align {
   background-color: #f23f15;
   border: none;
   border-radius: 8px;
+}
+
+@media (max-width: 620px) {
+  .exam-landing {
+    margin: 20px;
+    padding: 16px 24px;
+  }
+  .exam-header {
+    flex-direction: column;
+  }
+  .exam-header > h1 {
+    font-size: 30px;
+  }
+  .exam-landing > h3 {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .exam-form {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  .exam-landing {
+    margin: 20px;
+    padding: 16px 24px;
+  }
+  .exam-header {
+    flex-direction: column;
+  }
+  .exam-header > h1 {
+    font-size: 24px;
+  }
+  .exam-landing > h3 {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .exam-form {
+    margin-top: 50px;
+  }
+  .exam-question > h3 {
+    font-size: 14px;
+  }
+  .exam-question > label {
+    font-size: 13px;
+  }
+}
+
+.exam-submit {
+  margin-top: 30px;
 }
 
 /* Result Page */
