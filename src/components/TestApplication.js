@@ -33,8 +33,20 @@ export default function TestApplication({ showTestApplication, setShowTestApplic
             handleClose();
         }
     };
-
+    const checkouthandler = async () => {
+        try {
+            const { data } = await axios.post("http://localhost:4000/api/checkout", {
+                studentId: selectedStudent,
+                studentName: students.find((s) => s.id === parseInt(selectedStudent)).name,
+                subject: selectedSubject
+            });
+            console.log('Checkout successful:', data);
+        } catch (error) {
+            console.error('Error during checkout:', error);
+        }
+    }
     const handleProceedToPayment = () => {
+        checkouthandler()
         navigate('/exampage', { state: { selectedStudent, selectedSubject } });
     };
 
